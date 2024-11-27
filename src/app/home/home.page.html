@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <div class="header-content">
+        <img src="https://cdn-icons-png.flaticon.com/512/3175/3175622.png" alt="University Logo" class="university-logo" />
+        <span class="page-title">RegistrAPP</span>
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="form-container">
+  <form (ngSubmit)="login()" #loginForm="ngForm">
+    <ion-item>
+      <ion-input
+        [(ngModel)]="username"
+        name="username"
+        required
+        type="email"
+        placeholder="Correo electrónico"
+      ></ion-input>
+    </ion-item>
+    <ion-item *ngIf="usernameError">
+      <ion-label color="danger">Correo electrónico no válido.</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+        [(ngModel)]="password"
+        name="password"
+        required
+        type="password"
+        placeholder="Contraseña"
+      ></ion-input>
+    </ion-item>
+    <ion-item *ngIf="passwordError">
+      <ion-label color="danger">La contraseña debe tener al menos 5 caracteres.</ion-label>
+    </ion-item>
+    
+    <ion-item *ngIf="userExists">
+      <ion-label color="danger">Este usuario ya existe.</ion-label>
+    </ion-item>
+
+    <ion-item *ngIf="errorMessage">
+      <ion-label color="danger">{{ errorMessage }}</ion-label>
+    </ion-item>
+
+    <ion-button color="purple" expand="center" type="submit">ENTRAR</ion-button>
+    <ion-button color="purple" expand="center" routerLink="/recuperar">RECUPERAR CUENTA</ion-button>
+    <ion-button color="purple" expand="center" (click)="register()">REGISTRARSE</ion-button>
+  </form>
+
+  <div *ngIf="successMessage" class="success">{{ successMessage }}</div>
+</ion-content>
+
+<ion-footer>
+  <div class="uni">
+    <img src="/assets/logo-duoc.png" alt="Duoc Logo" class="university-logo" />
+  </div>
+</ion-footer>

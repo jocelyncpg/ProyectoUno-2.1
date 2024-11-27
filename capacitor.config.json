@@ -1,0 +1,18 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "Registr-App",
+  "webDir": "www",
+  "bundledWebRuntime": false,
+  "plugins": {
+    "CapacitorCamera": {
+      "permissions": {
+        "android": [
+          "CAMERA"
+        ],
+        "ios": {
+          "cameraUsageDescription": "La aplicación necesita acceso a la cámara para escanear códigos QR."
+        }
+      }
+    }
+  }
+}

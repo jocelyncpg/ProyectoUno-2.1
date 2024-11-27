@@ -1,0 +1,13 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>claseQR</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="qr-container">
+    <qrcode [qrdata]="qrData" [width]="256"></qrcode>
+    <br>
+    <ion-button expand="block" color="purple" button (click)="cambiarPag()">Volver</ion-button>
+  </div>
+</ion-content>
